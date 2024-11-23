@@ -64,10 +64,11 @@ sum_chain = RetrievalQA.from_chain_type(
     chain_type_kwargs={'prompt': prompt}
 )
 
-print("#### Summary generated successfully !!")
+
 
 def generate_response(query):
     response = sum_chain({'query': query})
+    print("#### Summary generated successfully !!")
     generated_text = response['result'].strip()
     if 'Summary:' in generated_text:
         summary = generated_text.split('Summary:')[-1].strip()
