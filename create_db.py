@@ -2,6 +2,8 @@ import pandas as pd
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+import warnings
+warnings.filterwarnings('ignore')
 
 DATA_PATH = 'data/'
 DB_FAISS_PATH = 'data/db_faiss'
