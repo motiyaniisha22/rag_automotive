@@ -33,7 +33,7 @@ db = FAISS.load_local(
 model = AutoModelForCausalLM.from_pretrained("neuralmagic/Meta-Llama-3.1-8B-Instruct-FP8").to('cuda')
 tokenizer = AutoTokenizer.from_pretrained("neuralmagic/Meta-Llama-3.1-8B-Instruct-FP8", max_new_tokens = 1024)
 
-pipe = pipeline('text-generation', model=model, tokenizer=tokenizer, device=0, max_new_tokens = 1024)
+pipe = pipeline('text-generation', model=model, tokenizer=tokenizer, device=auto, max_new_tokens = 1024)
 llm = HuggingFacePipeline(pipeline=pipe)
 
 # Create the sum chain once
