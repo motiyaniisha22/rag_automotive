@@ -4,6 +4,8 @@ from langchain.prompts import PromptTemplate
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.llms import HuggingFacePipeline
+import warnings
+warnings.filterwarnings('ignore')
 
 DB_FAISS_PATH = 'data/db_faiss'
 
