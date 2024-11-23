@@ -53,8 +53,8 @@ db = FAISS.load_local(
 
 print("#### FAISS Database loaded !!")
 
-model = AutoModelForCausalLM.from_pretrained("TheBloke/Llama-2-7B-Chat-GGUF").to('cuda')
-tokenizer = AutoTokenizer.from_pretrained("TheBloke/Llama-2-7B-Chat-GGUF")
+model = AutoModelForCausalLM.from_pretrained("neuralmagic/Meta-Llama-3.1-8B-FP8").to('cuda')
+tokenizer = AutoTokenizer.from_pretrained("neuralmagic/Meta-Llama-3.1-8B-FP8")
 # tokenizer = LlamaTokenizer.from_pretrained("TheBloke/Llama-2-7B-Chat-GGUF")
 
 print("#### Model & Tokenizer loaded !!")
