@@ -7,6 +7,8 @@ from langchain_community.llms import HuggingFacePipeline
 import warnings
 warnings.filterwarnings('ignore')
 
+from transformers import LlamaTokenizer
+
 DB_FAISS_PATH = 'data/db_faiss'
 
 # custom_prompt_template = """You are a summarization agent that summarizes an automotive issue.
@@ -52,7 +54,8 @@ db = FAISS.load_local(
 print("#### FAISS Database loaded !!")
 
 model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-1B" ,token="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").to('cuda')
-tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-1B")
+# tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-1B")
+tokenizer = LlamaTokenizer.from_pretrained("meta-llama/Llama-2-7b")
 
 print("#### Model & Tokenizer loaded !!")
 
