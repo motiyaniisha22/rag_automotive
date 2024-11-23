@@ -51,8 +51,8 @@ db = FAISS.load_local(
 
 print("#### FAISS Database loaded !!")
 
-model = AutoModelForCausalLM.from_pretrained("microsoft/Phi-3-mini-4k-instruct").to('cuda')
-tokenizer = AutoTokenizer.from_pretrained("microsoft/Phi-3-mini-4k-instruct")
+model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-1B" ,token="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").to('cuda')
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-1B")
 
 print("#### Model & Tokenizer loaded !!")
 
