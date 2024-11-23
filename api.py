@@ -27,7 +27,7 @@ custom_prompt_template = """You are an expert in creating summaries for automoti
 Question : {question}
 Context : {context}
 
-Summary :"""
+Summary:"""
 
 prompt = PromptTemplate(
     template=custom_prompt_template,
