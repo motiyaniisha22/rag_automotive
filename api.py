@@ -7,11 +7,18 @@ from langchain_community.llms import HuggingFacePipeline
 
 DB_FAISS_PATH = 'data/db_faiss'
 
-custom_prompt_template = """You are a summarization agent that summarizes an automotive issue. Input to the agent comes in the form of a JSON object. Return short summary.
+custom_prompt_template = """You are a summarization agent that summarizes an automotive issue.
+Inputs will be as follows -
+    1) Question as a JSON object with keys : make (company of the car), model (model of the car), year (year of the model launch) and issue (issue with the model).
+    2) Context (based on which the summary will be genrated)
+
 Context: {context}
 Question: {question}
 
+Output should strictly follow the following format :
+```
 Summary:
+```
 """
 
 prompt = PromptTemplate(
