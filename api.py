@@ -9,19 +9,25 @@ warnings.filterwarnings('ignore')
 
 DB_FAISS_PATH = 'data/db_faiss'
 
-custom_prompt_template = """You are a summarization agent that summarizes an automotive issue.
-Inputs will be as follows -
-    1) Question as a JSON object with keys : make (company of the car), model (model of the car), year (year of the model launch) and issue (issue with the model).
-    2) Context (based on which the summary will be genrated)
+# custom_prompt_template = """You are a summarization agent that summarizes an automotive issue.
+# Inputs will be as follows -
+#     1) Question as a JSON object with keys : make (company of the car), model (model of the car), year (year of the model launch) and issue (issue with the model).
+#     2) Context (based on which the summary will be genrated)
 
-Context: {context}
-Question: {question}
+# Context: {context}
+# Question: {question}
 
-Output should strictly follow the following format :
-```
-Summary:
-```
-"""
+# Output should strictly follow the following format :
+# ```
+# Summary:
+# ```
+# """
+
+custom_prompt_template = """You are an expert in creating summaries for automotive issues based on some context documents. You will be given a json as input, generate only a very short summary.
+Question : {question}
+Context : {context}
+
+Summary :"""
 
 prompt = PromptTemplate(
     template=custom_prompt_template,
