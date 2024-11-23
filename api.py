@@ -41,7 +41,7 @@ tokenizer = AutoTokenizer.from_pretrained("neuralmagic/Meta-Llama-3.1-8B-Instruc
 
 print("#### Model & Tokenizer loaded !!")
 
-pipe = pipeline('text-generation', model=model, tokenizer=tokenizer, device=0, max_new_tokens = 1024)
+pipe = pipeline('text-generation', model=model, tokenizer=tokenizer, device=0)
 llm = HuggingFacePipeline(pipeline=pipe)
 
 print("#### Pipeline created !!")
