@@ -7,7 +7,7 @@ from langchain_community.llms import HuggingFacePipeline
 import warnings
 warnings.filterwarnings('ignore')
 
-from transformers import LlamaTokenizer
+# from transformers import LlamaTokenizer
 
 DB_FAISS_PATH = 'data/db_faiss'
 
@@ -53,9 +53,9 @@ db = FAISS.load_local(
 
 print("#### FAISS Database loaded !!")
 
-model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-1B" ,token="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").to('cuda')
-# tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-1B")
-tokenizer = LlamaTokenizer.from_pretrained("meta-llama/Llama-3.2-1B")
+model = AutoModelForCausalLM.from_pretrained("TheBloke/Llama-2-7B-Chat-GGUF").to('cuda')
+tokenizer = AutoTokenizer.from_pretrained("TheBloke/Llama-2-7B-Chat-GGUF")
+# tokenizer = LlamaTokenizer.from_pretrained("TheBloke/Llama-2-7B-Chat-GGUF")
 
 print("#### Model & Tokenizer loaded !!")
 
