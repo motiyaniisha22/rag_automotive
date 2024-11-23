@@ -55,7 +55,7 @@ print("#### FAISS Database loaded !!")
 
 model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.2-1B" ,token="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").to('cuda')
 # tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.2-1B")
-tokenizer = LlamaTokenizer.from_pretrained("meta-llama/Llama-2-7b")
+tokenizer = LlamaTokenizer.from_pretrained("meta-llama/Llama-3.2-1B")
 
 print("#### Model & Tokenizer loaded !!")
 
