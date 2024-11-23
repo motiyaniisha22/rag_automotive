@@ -30,8 +30,8 @@ db = FAISS.load_local(
     allow_dangerous_deserialization=True
 )
 
-model = AutoModelForCausalLM.from_pretrained("meta-llama/Llama-3.1-8B", token = "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").to('cuda')
-tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.1-8B")
+model = AutoModelForCausalLM.from_pretrained("neuralmagic/Meta-Llama-3.1-8B-Instruct-FP8").to('cuda')
+tokenizer = AutoTokenizer.from_pretrained("neuralmagic/Meta-Llama-3.1-8B-Instruct-FP8")
 
 pipe = pipeline('text-generation', model=model, tokenizer=tokenizer, device=0)
 llm = HuggingFacePipeline(pipeline=pipe)
