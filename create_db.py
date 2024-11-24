@@ -8,8 +8,10 @@ warnings.filterwarnings('ignore')
 DATA_PATH = 'data/'
 DB_FAISS_PATH = 'data/db_faiss'
 
-# Create vector database
 def create_vector_db():
+    '''
+        This function creates a vector database using the documents
+    '''
     data = pd.read_csv('data/FLAT_RCL.csv')
     makes = data['make'].tolist()
     models = data['model'].tolist()
