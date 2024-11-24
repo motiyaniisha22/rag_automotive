@@ -1,7 +1,15 @@
 import time
 import api
+import argparse
 
-user_input = "{'make': 'ford', 'model' : 'escape', 'year': '2001', 'issue': 'stuck throttle risk'}"
+# Set up argument parser
+parser = argparse.ArgumentParser(description="Automobile Issue Summarization")
+parser.add_argument('--user_input', type=str, help="JSON string with automobile issue details", required=True)
+
+# Parse the command line argument
+args = parser.parse_args()
+user_input = args.user_input
+# user_input = "{'make': 'ford', 'model' : 'escape', 'year': '2001', 'issue': 'stuck throttle risk'}"
 
 # while True:
 #     user_input = input("Paste Json here: ")
