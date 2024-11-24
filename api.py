@@ -7,8 +7,6 @@ from langchain_community.llms import HuggingFacePipeline
 import warnings
 warnings.filterwarnings('ignore')
 
-# from transformers import LlamaTokenizer
-
 DB_FAISS_PATH = 'data/db_faiss'
 
 custom_prompt_template = """You are an expert in generating short summary for automotive issues.
@@ -23,35 +21,26 @@ prompt = PromptTemplate(
     input_variables=['context', 'question']
 )
 
-# print("#### Prompt Template ready !!")
-
 embeddings = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-MiniLM-L6-v2",
     model_kwargs={'device': 'cuda'}
 )
 
-# print("#### Embeddings model loaded !!")
-
+# Loading the vector database
 db = FAISS.load_local(
     DB_FAISS_PATH,
     embeddings,
     allow_dangerous_deserialization=True
 )
 
-# print("#### FAISS Database loaded !!")
-
+# Loading the model & tokenizer for generation
 model = AutoModelForCausalLM.from_pretrained("neuralmagic/Meta-Llama-3.1-8B-FP8").to('cuda')
 tokenizer = AutoTokenizer.from_pretrained("neuralmagic/Meta-Llama-3.1-8B-FP8")
-# tokenizer = LlamaTokenizer.from_pretrained("TheBloke/Llama-2-7B-Chat-GGUF")
-
-# print("#### Model & Tokenizer loaded !!")
 
 pipe = pipeline('text-generation', model=model, tokenizer=tokenizer, device=0, max_new_tokens = 1024)
 llm = HuggingFacePipeline(pipeline=pipe)
 
-# print("#### Pipeline created !!")
-
-
+# Pipeline for retrieval
 sum_chain = RetrievalQA.from_chain_type(
     llm=llm,
     chain_type='stuff',
@@ -60,12 +49,13 @@ sum_chain = RetrievalQA.from_chain_type(
     chain_type_kwargs={'prompt': prompt}
 )
 
-
 def generate_response(query):
+    '''
+        This function generates the summary using the context and the query
+    '''
     response = sum_chain({'query': query})
-
-    # print("#### Summary generated successfully !!")
     generated_text = response['result'].strip()
+    
     if 'Summary:' in generated_text:
         summary = generated_text.split('Summary:')[-1].strip()
     else:
