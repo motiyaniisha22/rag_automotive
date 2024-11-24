@@ -3,8 +3,8 @@ import api
 import argparse
 
 # Set up argument parser
-parser = argparse.ArgumentParser(description="Automobile Issue Summarization")
-parser.add_argument('--user_input', type=str, help="JSON string with automobile issue details", required=True)
+parser = argparse.ArgumentParser(description="Summarization")
+parser.add_argument('--json_query', type=str, help="JSON string with automobile issue and car details", required=True)
 
 # Parse the command line argument
 args = parser.parse_args()
