@@ -3,7 +3,7 @@
 Leveraging RAG abilities to summarize automobile issues. Relevant documents were retrieved using FAISS and were provided to quantized Llama 3.1 along with the query to generate summary.
 
 ### Steps to Run the Project
-Follow the below steps to run the code or use run_script.ipynb.
+Follow the below steps to run the code or use run_script.ipynb to run the project on kaggle or colab for GPU resources.
 
 #### 1. Installing required dependencies.
 You can intall the dependies using the following command :
