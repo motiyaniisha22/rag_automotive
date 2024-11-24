@@ -20,5 +20,10 @@ python create_db.py
 #### 3. Generate a Summary
 The final step is to create the summary of retrieved documents. This can be performed by running the script as follows:
 ```bash 
-python inference.py --query <your json query>
+python inference.py --json_query "<your json query>"
+```
+
+Example :
+```bash
+python inference.py --json_query "{'make': 'ford', 'model' : 'escape', 'year': '2001', 'issue': 'stuck throttle risk'}"
 ```
