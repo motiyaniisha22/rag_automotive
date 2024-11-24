@@ -1,15 +1,14 @@
-import api
 import time
 
-# while True:
-#     user_input = input("Paste Json here: ")
-#     if user_input == "exit":
-#         break
-user_input = "{ 'make': 'ford', 'model': 'escape', 'year': '2001', 'issue': 'stuck throttle risk'}"
+# user_input = "{'make': 'ford', 'model' : 'escape', 'year': '2001', 'issue': 'stuck throttle risk'}"
 
-start_time = time.time()
-response = api.generate_response(user_input)
-end_time = time.time()
-print(response)
-print("Time taken = ", end_time-start_time)
-
+while True:
+    user_input = input("Paste Json here: ")
+    start_time = time.time()
+    response, retrieved_docs = generate_response(user_input)
+    end_time = time.time()
+    print("Summary :\n",response)
+    print("\n\nRetrieved Documents :\n",retrieved_docs)
+    print("\n\nTime taken = ", (end_time - start_time) // 60, "minutes")
+    if user_input == "exit":
+        break
