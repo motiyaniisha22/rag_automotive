@@ -8,7 +8,7 @@ parser.add_argument('--json_query', type=str, help="JSON string with automobile 
 
 # Parse the command line argument
 args = parser.parse_args()
-user_input = args.user_input
+user_input = args.json_query
 # user_input = "{'make': 'ford', 'model' : 'escape', 'year': '2001', 'issue': 'stuck throttle risk'}"
 
 # while True:
