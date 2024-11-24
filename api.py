@@ -64,7 +64,7 @@ llm = HuggingFacePipeline(pipeline=pipe)
 
 print("#### Pipeline created !!")
 
-# Create the sum chain once
+
 sum_chain = RetrievalQA.from_chain_type(
     llm=llm,
     chain_type='stuff',
