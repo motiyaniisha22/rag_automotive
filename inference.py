@@ -1,12 +1,12 @@
 import time
 import api
+import argparse
 
-user_input = "{'make': 'ford', 'model' : 'escape', 'year': '2001', 'issue': 'stuck throttle risk'}"
+parser = argparse.ArgumentParser(description="Summarization")
+parser.add_argument('--json_query', type=str, help="JSON string with automobile issue and car details", required=True)
 
-# while True:
-#     user_input = input("Paste Json here: ")
-#     if user_input == "exit":
-#         break
+args = parser.parse_args()
+user_input = args.json_query
 
 # start_time = time.time()
 response, retrieved_docs = api.generate_response(user_input)
