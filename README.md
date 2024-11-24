@@ -1,6 +1,6 @@
 ## Automobile Issue Summarization using RAG (Retrieval-Augmented Generation)
 
-Task : Leverage RAG abilities to summarize automobile issues. Relevant documents were retrieved using FAISS and were provided to quantized Llama 3.1 along with the query to generate summary.
+Leveraging RAG abilities to summarize automobile issues. Relevant documents were retrieved using FAISS and were provided to quantized Llama 3.1 along with the query to generate summary.
 
 ### Steps to Run the Project
 Follow the below steps to run the code or use run_script.ipynb.
