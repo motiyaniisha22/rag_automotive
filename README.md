@@ -6,7 +6,7 @@ Leveraging RAG abilities to summarize automobile issues. Relevant documents were
 Follow the below steps to run the code or use run_script.ipynb to run the project on kaggle or colab for GPU resources.
 
 #### 1. Installing required dependencies.
-You can intall the dependies using the following command :
+You can intall the dependencies using the following command :
 ```bash 
 pip install -r requirements.txt
 ```
